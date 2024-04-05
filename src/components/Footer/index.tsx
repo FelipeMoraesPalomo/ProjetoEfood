@@ -12,13 +12,19 @@ const Footer = () => (
       </a>
       <FooterUl>
         <li>
-          <img src={instagram} alt="" />
+          <a href="/">
+            <img src={instagram} alt="" />
+          </a>
         </li>
         <li>
-          <img src={facebook} alt="" />
+          <a href="/">
+            <img src={facebook} alt="" />
+          </a>
         </li>
         <li>
-          <img src={twitter} alt="" />
+          <a href="/">
+            <img src={twitter} alt="" />
+          </a>
         </li>
       </FooterUl>
       <FooterP>
