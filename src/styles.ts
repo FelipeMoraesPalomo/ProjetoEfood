@@ -1,10 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
-import styled from 'styled-components'
+import { styled, createGlobalStyle } from 'styled-components'
 
 export const cores = {
   salmao: '#E66767',
   branco: '#FFFFFF',
-  laranja: '#FFEBD9'
+  laranja: '#FFEBD9',
+  laranjaClaro: '#FFF8F2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -18,7 +18,7 @@ export const GlobalCss = createGlobalStyle`
 
   body{
     color: ${cores.salmao};
-    background-color: ${cores.branco};
+    background-color: ${cores.laranjaClaro};
   }
 `
 export const Container = styled.div`
