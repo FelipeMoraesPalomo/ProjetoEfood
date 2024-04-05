@@ -50,8 +50,8 @@ export const Titulo = styled.h3`
 export const Descricao = styled.p`
   font-size: 14px;
   font-weight: 400;
-  width: 456px;
   margin: 16px 0;
+  line-height: 22px;
 `
 
 export const Tags = styled.div`

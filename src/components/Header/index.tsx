@@ -5,7 +5,7 @@ const Header = () => (
   <HeaderContainer>
     <HeaderDiv>
       <a href="#">
-        <img src={logo} alt="" />
+        <img src={logo} alt="Efood" />
       </a>
       <div>
         <HeaderTitle>

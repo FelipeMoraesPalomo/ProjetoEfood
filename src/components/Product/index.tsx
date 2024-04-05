@@ -46,7 +46,9 @@ const Product = ({
         </p>
       </TituloDiv>
       <Descricao>{descricao}</Descricao>
-      <Tag size="big">Saiba mais</Tag>
+      <button>
+        <Tag size="big">Saiba mais</Tag>
+      </button>
     </DescricaoDiv>
   </ProductContainer>
 )

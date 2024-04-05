@@ -2,6 +2,7 @@ import ProductModel from '../../Models/ProductModel'
 import ProductsList from '../../components/ProductsList'
 import sushi from '../../assets/images/sushi.png'
 import massa from '../../assets/images/massa.png'
+import Footer from '../../components/Footer'
 
 const ProdutosHome: ProductModel[] = [
   {
@@ -61,6 +62,11 @@ const ProdutosHome: ProductModel[] = [
   }
 ]
 
-const Home = () => <ProductsList products={ProdutosHome} />
+const Home = () => (
+  <>
+    <ProductsList products={ProdutosHome} />
+    <Footer />
+  </>
+)
 
 export default Home
