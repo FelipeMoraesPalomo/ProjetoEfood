@@ -1,14 +1,7 @@
 import Tag from '../Tag'
 import estrela from '../../assets/images/estrela.png'
-import {
-  Descricao,
-  DescricaoDiv,
-  ImgDiv,
-  ProductContainer,
-  Tags,
-  Titulo,
-  TituloDiv
-} from './styles'
+
+import * as S from './styles'
 
 export type Props = {
   imagem: string
@@ -27,30 +20,30 @@ const Product = ({
   nota,
   descricao
 }: Props) => (
-  <ProductContainer>
-    <ImgDiv>
+  <S.ProductContainer>
+    <S.ImgDiv>
       <img src={imagem} alt={titulo} />
-      <Tags>
+      <S.Tags>
         {destaque ? <Tag>Destaque da semana</Tag> : ''}
         <Tag>{origem}</Tag>
-      </Tags>
-    </ImgDiv>
-    <DescricaoDiv>
-      <TituloDiv>
-        <Titulo>{titulo}</Titulo>
+      </S.Tags>
+    </S.ImgDiv>
+    <S.DescricaoDiv>
+      <S.TituloDiv>
+        <S.Titulo>{titulo}</S.Titulo>
         <p>
           {nota}
           <span>
             <img src={estrela} alt="Estrela" />
           </span>
         </p>
-      </TituloDiv>
-      <Descricao>{descricao}</Descricao>
+      </S.TituloDiv>
+      <S.Descricao>{descricao}</S.Descricao>
       <button>
         <Tag size="big">Saiba mais</Tag>
       </button>
-    </DescricaoDiv>
-  </ProductContainer>
+    </S.DescricaoDiv>
+  </S.ProductContainer>
 )
 
 export default Product

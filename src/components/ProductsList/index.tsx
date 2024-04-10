@@ -1,14 +1,14 @@
 import ProductModel from '../../Models/ProductModel'
 import Product from '../Product'
-import { List, Section } from './styles'
+import * as S from './styles'
 
 type Props = {
   products: ProductModel[]
 }
 
 const ProductsList = ({ products }: Props) => (
-  <Section>
-    <List>
+  <S.Section>
+    <S.List>
       {products.map((product) => (
         <Product
           descricao={product.descricao}
@@ -20,8 +20,8 @@ const ProductsList = ({ products }: Props) => (
           destaque={product.destaque}
         />
       ))}
-    </List>
-  </Section>
+    </S.List>
+  </S.Section>
 )
 
 export default ProductsList
