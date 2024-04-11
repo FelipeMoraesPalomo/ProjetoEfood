@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import vector from '../../assets/images/Vector.png'
+import vector from '../../assets/images/vector.png'
 
 export const HeaderContainer = styled.header`
   background-color: ${cores.laranja};
