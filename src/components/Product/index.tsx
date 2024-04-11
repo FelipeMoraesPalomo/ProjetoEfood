@@ -2,6 +2,7 @@ import Tag from '../Tag'
 import estrela from '../../assets/images/estrela.png'
 
 import * as S from './styles'
+import { Link } from 'react-router-dom'
 
 export type Props = {
   imagem: string
@@ -40,7 +41,9 @@ const Product = ({
       </S.TituloDiv>
       <S.Descricao>{descricao}</S.Descricao>
       <button>
-        <Tag size="big">Saiba mais</Tag>
+        <Link to="/shop">
+          <Tag size="big">Saiba mais</Tag>
+        </Link>
       </button>
     </S.DescricaoDiv>
   </S.ProductContainer>
