@@ -6,6 +6,7 @@ class ProductModel {
   nota: string
   descricao: string
   id: number
+  to: string
 
   constructor(
     imagem: string,
@@ -14,6 +15,7 @@ class ProductModel {
     nota: string,
     descricao: string,
     id: number,
+    to: string,
     destaque?: boolean
   ) {
     this.id = id
@@ -23,6 +25,7 @@ class ProductModel {
     this.nota = nota
     this.descricao = descricao
     this.destaque = destaque
+    this.to = to
   }
 }
 

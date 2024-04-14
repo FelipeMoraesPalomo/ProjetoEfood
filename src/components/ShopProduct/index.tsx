@@ -1,3 +1,4 @@
+import Button from '../Button'
 import * as S from './styles'
 
 type Props = {
@@ -12,7 +13,9 @@ const ShopProduct = ({ imagem, titulo, descricao }: Props) => (
     <S.TextDiv>
       <h3>{titulo}</h3>
       <p>{descricao}</p>
-      <S.Button>Adicionar ao carrinho</S.Button>
+      <Button title="Adicionar ao carrinho" type="button">
+        Adicionar ao carrinho
+      </Button>
     </S.TextDiv>
   </S.ShopProductDiv>
 )

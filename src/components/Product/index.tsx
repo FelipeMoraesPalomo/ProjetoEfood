@@ -2,7 +2,7 @@ import Tag from '../Tag'
 import estrela from '../../assets/images/estrela.png'
 
 import * as S from './styles'
-import { Link } from 'react-router-dom'
+import Button from '../Button'
 
 export type Props = {
   imagem: string
@@ -11,6 +11,7 @@ export type Props = {
   destaque?: boolean
   nota: string
   descricao: string
+  to: string
 }
 
 const Product = ({
@@ -19,7 +20,8 @@ const Product = ({
   origem,
   destaque,
   nota,
-  descricao
+  descricao,
+  to
 }: Props) => (
   <S.ProductContainer>
     <S.ImgDiv>
@@ -40,11 +42,9 @@ const Product = ({
         </p>
       </S.TituloDiv>
       <S.Descricao>{descricao}</S.Descricao>
-      <button>
-        <Link to="/shop">
-          <Tag size="big">Saiba mais</Tag>
-        </Link>
-      </button>
+      <Button title="Saiba mais" to={to} type="link">
+        Saiba mais
+      </Button>
     </S.DescricaoDiv>
   </S.ProductContainer>
 )

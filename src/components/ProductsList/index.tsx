@@ -18,6 +18,7 @@ const ProductsList = ({ products }: Props) => (
           titulo={product.titulo}
           key={product.id}
           destaque={product.destaque}
+          to={product.to}
         />
       ))}
     </S.List>

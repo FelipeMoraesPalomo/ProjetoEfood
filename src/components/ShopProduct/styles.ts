@@ -25,13 +25,3 @@ export const TextDiv = styled.div`
     font-weight: 400;
   }
 `
-export const Button = styled.button`
-  width: 100%;
-  color: ${cores.salmao};
-  background-color: ${cores.laranja};
-  text-align: center;
-  padding: 4px 0;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-`
