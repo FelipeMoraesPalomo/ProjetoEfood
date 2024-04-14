@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import vector from '../../assets/images/vector.png'
+import fundo from '../../assets/images/fundo.png'
 
 export const HeaderContainer = styled.header`
   background-color: ${cores.laranja};
   height: 384px;
-  background: url(${vector});
+  background: url(${fundo});
 `
 export const HeaderDiv = styled.div`
   display: flex;

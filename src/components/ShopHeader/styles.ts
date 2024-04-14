@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-import vector from '../../assets/images/vector.png'
+import fundo from '../../assets/images/fundo.png'
 
 export const ShopHeaderContainer = styled.header`
   background-color: ${cores.laranja};
-  background: url(${vector});
+  background: url(${fundo});
   height: 160px;
   font-size: 18px;
   font-weight: bold;
