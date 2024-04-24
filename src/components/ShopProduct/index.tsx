@@ -5,10 +5,11 @@ type Props = {
   imagem: string
   titulo: string
   descricao: string
+  onClick?: () => void
 }
 
-const ShopProduct = ({ imagem, titulo, descricao }: Props) => (
-  <S.ShopProductDiv>
+const ShopProduct = ({ imagem, titulo, descricao, onClick }: Props) => (
+  <S.ShopProductDiv onClick={onClick}>
     <img src={imagem} alt={titulo} />
     <S.TextDiv>
       <h3>{titulo}</h3>

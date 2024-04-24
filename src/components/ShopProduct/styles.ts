@@ -7,6 +7,10 @@ export const ShopProductDiv = styled.div`
   color: ${cores.laranja};
   padding: 8px;
   font-size: 14px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const TextDiv = styled.div`
   width: 100%;
