@@ -38,7 +38,7 @@ export const ImgDiv = styled.div`
   position: relative;
 
   img {
-    width: 472px;
+    width: 100%;
     height: 217px;
     object-fit: cover;
   }
