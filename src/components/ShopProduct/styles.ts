@@ -8,6 +8,12 @@ export const ShopProductDiv = styled.div`
   padding: 8px;
   font-size: 14px;
 
+  img {
+    width: 100%;
+    height: 167px;
+    object-fit: cover;
+  }
+
   &:hover {
     cursor: pointer;
   }
@@ -27,5 +33,6 @@ export const TextDiv = styled.div`
     margin-bottom: 8px;
     line-height: 22px;
     font-weight: 400;
+    height: 88px;
   }
 `

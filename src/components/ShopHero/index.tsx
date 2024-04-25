@@ -1,11 +1,18 @@
 import * as S from './styles'
 
-const ShopHero = () => (
-  <S.HeroContainer>
+export type Props = {
+  tipo: string
+  capa: string
+  titulo: string
+}
+
+const ShopHero = ({ tipo, capa, titulo }: Props) => (
+  <S.HeroContainer capa={capa}>
     <S.TextDiv className="container">
-      <h3>Italiana</h3>
-      <h2>La Dolce Vita Trattoria</h2>
+      <h3>{tipo}</h3>
+      <h2>{titulo}</h2>
     </S.TextDiv>
+    <div className="overlay"></div>
   </S.HeroContainer>
 )
 

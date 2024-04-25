@@ -1,78 +1,24 @@
 import ProductModel from '../../Models/ProductModel'
 import ProductsList from '../../components/ProductsList'
-import sushi from '../../assets/images/sushi.png'
-import massa from '../../assets/images/massa.png'
+
 import Header from '../../components/Header'
+import { useEffect, useState } from 'react'
 
-const ProdutosHome: ProductModel[] = [
-  {
-    id: 1,
-    imagem: sushi,
-    titulo: 'Hioki Sushi',
-    origem: 'Japonesa',
-    nota: '4.9',
-    descricao:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
-    destaque: true,
-    to: '/'
-  },
-  {
-    id: 2,
-    imagem: massa,
-    titulo: 'La Dolce Vita Trattoria',
-    origem: 'Italiana',
-    nota: '4.6',
-    descricao:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
-    to: '/shop'
-  },
-  {
-    id: 3,
-    to: '/shop',
-    imagem: massa,
-    titulo: 'La Dolce Vita Trattoria',
-    origem: 'Italiana',
-    nota: '4.6',
-    descricao:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!'
-  },
-  {
-    id: 4,
-    to: '/shop',
-    imagem: massa,
-    titulo: 'La Dolce Vita Trattoria',
-    origem: 'Italiana',
-    nota: '4.6',
-    descricao:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!'
-  },
-  {
-    id: 5,
-    to: '/shop',
-    imagem: massa,
-    titulo: 'La Dolce Vita Trattoria',
-    origem: 'Italiana',
-    nota: '4.6',
-    descricao:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!'
-  },
-  {
-    id: 6,
-    to: '/shop',
-    imagem: massa,
-    titulo: 'La Dolce Vita Trattoria',
-    origem: 'Italiana',
-    nota: '4.6',
-    descricao:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!'
-  }
-]
+const Home = () => {
+  const [restaurantes, setRestaurantes] = useState<ProductModel[]>([])
 
-const Home = () => (
-  <>
-    <Header />
-    <ProductsList products={ProdutosHome} />
-  </>
-)
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setRestaurantes(res))
+  })
+
+  return (
+    <>
+      <Header />
+      <ProductsList products={restaurantes} />
+    </>
+  )
+}
 
 export default Home

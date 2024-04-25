@@ -12,6 +12,7 @@ export const ListDiv = styled.div`
   grid-gap: 32px;
 `
 export const Modal = styled.div`
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -49,6 +50,7 @@ export const ModalContent = styled.div`
     max-width: 280px;
     max-height: 280px;
     margin-right: 24px;
+    object-fit: cover;
   }
 
   #close {
@@ -78,13 +80,8 @@ export const ModalTextDiv = styled.div`
     margin: 16px 0;
     line-height: 22px;
   }
-`
 
-export const ModalButton = styled.button`
-  background-color: ${cores.laranja};
-  color: ${cores.salmao};
-  max-width: 220px;
-  border: none;
-  padding: 4px;
-  font-weight: 700;
+  button {
+    max-width: 220px;
+  }
 `

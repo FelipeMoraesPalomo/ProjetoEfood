@@ -12,13 +12,13 @@ const ProductsList = ({ products }: Props) => (
       {products.map((product) => (
         <Product
           descricao={product.descricao}
-          imagem={product.imagem}
-          nota={product.nota}
-          origem={product.origem}
+          capa={product.capa}
+          avaliacao={product.avaliacao}
+          tipo={product.tipo}
           titulo={product.titulo}
           key={product.id}
-          destaque={product.destaque}
-          to={product.to}
+          destacado={product.destacado}
+          id={product.id}
         />
       ))}
     </S.List>

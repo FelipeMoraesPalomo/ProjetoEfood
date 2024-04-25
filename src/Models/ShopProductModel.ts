@@ -1,14 +1,25 @@
 class ShopProductModel {
-  imagem: string
-  titulo: string
-  descricao: string
+  foto: string
+  preco: number
   id: number
+  nome: string
+  descricao: string
+  porcao: string
 
-  constructor(imagem: string, titulo: string, descricao: string, id: number) {
-    this.imagem = imagem
-    this.titulo = titulo
+  constructor(
+    foto: string,
+    nome: string,
+    descricao: string,
+    id: number,
+    porcao: string,
+    preco: number
+  ) {
+    this.foto = foto
+    this.nome = nome
     this.descricao = descricao
     this.id = id
+    this.porcao = porcao
+    this.preco = preco
   }
 }
 

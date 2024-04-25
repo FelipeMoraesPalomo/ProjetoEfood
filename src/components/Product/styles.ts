@@ -38,7 +38,9 @@ export const ImgDiv = styled.div`
   position: relative;
 
   img {
-    max-width: 100%;
+    width: 472px;
+    height: 217px;
+    object-fit: cover;
   }
 `
 
@@ -52,6 +54,7 @@ export const Descricao = styled.p`
   font-weight: 400;
   margin: 16px 0;
   line-height: 22px;
+  height: 88px;
 `
 
 export const Tags = styled.div`

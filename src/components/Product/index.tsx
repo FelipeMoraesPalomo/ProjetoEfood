@@ -5,48 +5,57 @@ import * as S from './styles'
 import Button from '../Button'
 
 export type Props = {
-  imagem: string
+  capa: string
   titulo: string
-  origem: string
-  destaque?: boolean
-  nota: string
+  tipo: string
+  destacado?: boolean
+  avaliacao: string
   descricao: string
-  to: string
+  id: number
 }
 
 const Product = ({
-  imagem,
+  capa,
   titulo,
-  origem,
-  destaque,
-  nota,
+  tipo,
+  destacado,
+  avaliacao,
   descricao,
-  to
-}: Props) => (
-  <S.ProductContainer>
-    <S.ImgDiv>
-      <img src={imagem} alt={titulo} />
-      <S.Tags>
-        {destaque ? <Tag>Destaque da semana</Tag> : ''}
-        <Tag>{origem}</Tag>
-      </S.Tags>
-    </S.ImgDiv>
-    <S.DescricaoDiv>
-      <S.TituloDiv>
-        <S.Titulo>{titulo}</S.Titulo>
-        <p>
-          {nota}
-          <span>
-            <img src={estrela} alt="Estrela" />
-          </span>
-        </p>
-      </S.TituloDiv>
-      <S.Descricao>{descricao}</S.Descricao>
-      <Button title="Saiba mais" to={to} type="link">
-        Saiba mais
-      </Button>
-    </S.DescricaoDiv>
-  </S.ProductContainer>
-)
+  id
+}: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 250) {
+      return descricao.slice(0, 247) + '...'
+    }
+    return descricao
+  }
+
+  return (
+    <S.ProductContainer>
+      <S.ImgDiv>
+        <img src={capa} alt={titulo} />
+        <S.Tags>
+          {destacado ? <Tag>Destaque da semana</Tag> : ''}
+          <Tag>{tipo}</Tag>
+        </S.Tags>
+      </S.ImgDiv>
+      <S.DescricaoDiv>
+        <S.TituloDiv>
+          <S.Titulo>{titulo}</S.Titulo>
+          <p>
+            {avaliacao}
+            <span>
+              <img src={estrela} alt="Estrela" />
+            </span>
+          </p>
+        </S.TituloDiv>
+        <S.Descricao>{getDescricao(descricao)}</S.Descricao>
+        <Button title="Saiba mais" to={`shop/${id}`} type="link">
+          Saiba mais
+        </Button>
+      </S.DescricaoDiv>
+    </S.ProductContainer>
+  )
+}
 
 export default Product

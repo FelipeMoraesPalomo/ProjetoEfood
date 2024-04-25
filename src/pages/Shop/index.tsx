@@ -1,61 +1,38 @@
 import ShopHeader from '../../components/ShopHeader'
 import ShopHero from '../../components/ShopHero'
 
-import pizza from '../../assets/images/pizza.png'
 import ShopProductList from '../../components/ShopProductList'
-import ShopProductModel from '../../Models/ShopProductModel'
+import { useEffect, useState } from 'react'
+import ProductModel from '../../Models/ProductModel'
 
-const ProdutosShop: ShopProductModel[] = [
-  {
-    imagem: pizza,
-    id: 1,
-    titulo: 'Pizza Marguerita',
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    imagem: pizza,
-    id: 2,
-    titulo: 'Pizza Marguerita',
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    imagem: pizza,
-    id: 3,
-    titulo: 'Pizza Marguerita',
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    imagem: pizza,
-    id: 4,
-    titulo: 'Pizza Marguerita',
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    imagem: pizza,
-    id: 5,
-    titulo: 'Pizza Marguerita',
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    imagem: pizza,
-    id: 6,
-    titulo: 'Pizza Marguerita',
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
+import { useParams } from 'react-router-dom'
+
+const Shop = () => {
+  const { id } = useParams()
+
+  const [cardapio, setCardapio] = useState<ProductModel>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setCardapio(res))
+  })
+
+  if (!cardapio) {
+    return <h3>Carregando...</h3>
   }
-]
 
-const Shop = () => (
-  <>
-    <ShopHeader />
-    <ShopHero />
-    <ShopProductList ShopProducts={ProdutosShop} />
-  </>
-)
+  return (
+    <>
+      <ShopHeader />
+      <ShopHero
+        capa={cardapio.capa}
+        tipo={cardapio.tipo}
+        titulo={cardapio.titulo}
+      />
+      <ShopProductList ShopProducts={cardapio} />
+    </>
+  )
+}
 
 export default Shop

@@ -1,31 +1,33 @@
+import ShopProductModel from './ShopProductModel'
+
 class ProductModel {
-  imagem: string
+  capa: string
   titulo: string
-  origem: string
-  destaque?: boolean
-  nota: string
+  tipo: string
+  destacado?: boolean
+  avaliacao: string
   descricao: string
   id: number
-  to: string
+  cardapio: ShopProductModel[]
 
   constructor(
-    imagem: string,
+    capa: string,
     titulo: string,
-    origem: string,
-    nota: string,
+    tipo: string,
+    avaliacao: string,
     descricao: string,
     id: number,
-    to: string,
-    destaque?: boolean
+    cardapio: ShopProductModel[],
+    destacado?: boolean
   ) {
     this.id = id
     this.titulo = titulo
-    this.origem = origem
-    this.imagem = imagem
-    this.nota = nota
+    this.tipo = tipo
+    this.capa = capa
+    this.avaliacao = avaliacao
     this.descricao = descricao
-    this.destaque = destaque
-    this.to = to
+    this.cardapio = cardapio
+    this.destacado = destacado
   }
 }
 
