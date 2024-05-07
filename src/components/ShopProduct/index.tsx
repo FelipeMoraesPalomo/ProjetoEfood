@@ -1,14 +1,24 @@
 import Button from '../Button'
 import * as S from './styles'
 
+import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../store/reducers/cart'
+import ShopProductModel from '../../Models/ShopProductModel'
+
 type Props = {
-  foto: string
-  nome: string
-  descricao: string
+  shopProduct: ShopProductModel
   onClick?: () => void
 }
 
-const ShopProduct = ({ foto, nome, descricao, onClick }: Props) => {
+const ShopProduct = ({ shopProduct, onClick }: Props) => {
+  const dispatch = useDispatch()
+
+  const addProductToCart = () => {
+    dispatch(add(shopProduct))
+    dispatch(open())
+  }
+
   const getDescricao = (descricao: string) => {
     if (descricao.length > 140) {
       return descricao.slice(0, 137) + '...'
@@ -18,11 +28,15 @@ const ShopProduct = ({ foto, nome, descricao, onClick }: Props) => {
 
   return (
     <S.ShopProductDiv onClick={onClick}>
-      <img src={foto} alt={nome} />
+      <img src={shopProduct.foto} alt={shopProduct.nome} />
       <S.TextDiv>
-        <h3>{nome}</h3>
-        <p>{getDescricao(descricao)}</p>
-        <Button title="Adicionar ao carrinho" type="button">
+        <h3>{shopProduct.nome}</h3>
+        <p>{getDescricao(shopProduct.descricao)}</p>
+        <Button
+          onClick={addProductToCart}
+          title="Adicionar ao carrinho"
+          type="button"
+        >
           Adicionar ao carrinho
         </Button>
       </S.TextDiv>

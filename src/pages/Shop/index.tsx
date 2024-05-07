@@ -2,21 +2,14 @@ import ShopHeader from '../../components/ShopHeader'
 import ShopHero from '../../components/ShopHero'
 
 import ShopProductList from '../../components/ShopProductList'
-import { useEffect, useState } from 'react'
-import ProductModel from '../../Models/ProductModel'
 
 import { useParams } from 'react-router-dom'
+import { useGetMenuQuery } from '../../services/api'
 
 const Shop = () => {
   const { id } = useParams()
 
-  const [cardapio, setCardapio] = useState<ProductModel>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setCardapio(res))
-  })
+  const { data: cardapio } = useGetMenuQuery(id!)
 
   if (!cardapio) {
     return <h3>Carregando...</h3>

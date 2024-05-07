@@ -2,42 +2,56 @@ import pizza from '../../assets/images/pizza.png'
 
 import Button from '../Button'
 
+import { useDispatch, useSelector } from 'react-redux'
+
 import * as S from './styles'
+import { RootReducer } from '../../store'
+
+import { close, remove } from '../../store/reducers/cart'
+import { formataPreco } from '../ShopProductList'
 
 const Cart = () => {
+  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+
+  const dispatch = useDispatch()
+
+  const closeCart = () => {
+    dispatch(close())
+  }
+
+  const getTotalPrice = () => {
+    return items.reduce((acumulador, valorAtual) => {
+      return (acumulador += valorAtual.preco)
+    }, 0)
+  }
+
+  const removeItem = (id: number) => {
+    dispatch(remove(id))
+  }
+
   return (
-    <S.CartContainer>
-      <S.Overlay></S.Overlay>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCart}></S.Overlay>
       <S.Sidebar>
         <ul>
-          <S.CartItem>
-            <img className="productImage" src={pizza} />
-            <div>
-              <h4>Pizza Marguerita</h4>
-              <p>R$ 60,90</p>
-            </div>
-            <button className="close" type="button"></button>
-          </S.CartItem>
-          <S.CartItem>
-            <img className="productImage" src={pizza} />
-            <div>
-              <h4>Pizza Marguerita</h4>
-              <p>R$ 60,90</p>
-            </div>
-            <button className="close" type="button"></button>
-          </S.CartItem>
-          <S.CartItem>
-            <img className="productImage" src={pizza} />
-            <div>
-              <h4>Pizza Marguerita</h4>
-              <p>R$ 60,90</p>
-            </div>
-            <button className="close" type="button"></button>
-          </S.CartItem>
+          {items.map((item) => (
+            <S.CartItem key={item.id}>
+              <img className="productImage" src={item.foto} />
+              <div>
+                <h4>{item.nome}</h4>
+                <p>{formataPreco(item.preco)}</p>
+              </div>
+              <button
+                onClick={() => removeItem(item.id)}
+                className="close"
+                type="button"
+              ></button>
+            </S.CartItem>
+          ))}
         </ul>
         <S.Prices>
           <p>Valor total</p>
-          <p>R$182,70</p>
+          <p>{formataPreco(getTotalPrice())}</p>
         </S.Prices>
         <Button title="Clique aqui para continuar com a entrega" type="button">
           Continuar com a entrega

@@ -23,5 +23,8 @@ export const UlNavBar = styled.ul`
       color: ${cores.salmao};
       text-decoration: none;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 `

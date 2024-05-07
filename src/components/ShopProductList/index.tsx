@@ -15,7 +15,7 @@ interface ModalState extends ShopProductModel {
   isVisible: boolean
 }
 
-const formataPreco = (preco = 0) => {
+export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -54,9 +54,7 @@ const ShopProductList = ({ ShopProducts }: Props) => {
           {ShopProducts.cardapio.map((Product) => (
             <ShopProduct
               key={Product.id}
-              nome={Product.nome}
-              foto={Product.foto}
-              descricao={Product.descricao}
+              shopProduct={Product}
               onClick={() => {
                 setModal({
                   isVisible: true,

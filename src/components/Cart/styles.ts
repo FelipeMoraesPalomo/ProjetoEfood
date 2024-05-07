@@ -18,7 +18,7 @@ export const CartContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   z-index: 1;
   font-size: 14px;
@@ -35,6 +35,7 @@ export const Sidebar = styled.aside`
   flex-direction: column;
   z-index: 1;
   padding: 16px 8px;
+  min-width: 250px;
 
   .productImage {
     width: 80px;
@@ -51,6 +52,7 @@ export const Sidebar = styled.aside`
     position: absolute;
     bottom: 8px;
     right: 8px;
+    cursor: pointer;
   }
 `
 
