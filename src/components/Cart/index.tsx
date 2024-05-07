@@ -1,5 +1,3 @@
-import pizza from '../../assets/images/pizza.png'
-
 import Button from '../Button'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,7 +6,7 @@ import * as S from './styles'
 import { RootReducer } from '../../store'
 
 import { close, remove } from '../../store/reducers/cart'
-import { formataPreco } from '../ShopProductList'
+import { formataPreco } from '../ShopProduct'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
