@@ -36,6 +36,7 @@ export const Sidebar = styled.aside`
   z-index: 1;
   padding: 16px 8px;
   min-width: 250px;
+  overflow-x: hidden;
 
   .productImage {
     width: 80px;

@@ -7,11 +7,13 @@ export const ShopProductDiv = styled.div`
   color: ${cores.laranja};
   padding: 8px;
   font-size: 14px;
+  border-radius: 8px;
 
   img {
     width: 100%;
     height: 167px;
     object-fit: cover;
+    border-radius: 8px;
   }
 `
 export const TextDiv = styled.div`
