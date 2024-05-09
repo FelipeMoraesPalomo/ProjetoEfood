@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 import fundo from '../../assets/images/fundo.png'
 
@@ -9,6 +9,10 @@ export const ShopHeaderContainer = styled.header`
   height: 160px;
   font-size: 18px;
   font-weight: bold;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
+  }
 `
 
 export const UlNavBar = styled.ul`

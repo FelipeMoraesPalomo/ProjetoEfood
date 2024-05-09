@@ -1,11 +1,15 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ProductContainer = styled.div`
   width: 472px;
   color: ${cores.salmao};
   border: 1px solid ${cores.salmao};
   background-color: ${cores.branco};
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 280px;
+  }
 `
 export const DescricaoDiv = styled.div`
   padding: 8px;
@@ -32,6 +36,12 @@ export const TituloDiv = styled.div`
       margin-left: 8px;
     }
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    p {
+      font-size: 16px;
+    }
+  }
 `
 
 export const ImgDiv = styled.div`
@@ -47,6 +57,10 @@ export const ImgDiv = styled.div`
 export const Titulo = styled.h3`
   font-size: 18px;
   font-weight: bold;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 16px;
+  }
 `
 
 export const Descricao = styled.p`
@@ -55,6 +69,12 @@ export const Descricao = styled.p`
   margin: 16px 0;
   line-height: 22px;
   height: 88px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    line-height: normal;
+    font-size: 12px;
+    margin: 8px 0;
+  }
 `
 
 export const Tags = styled.div`

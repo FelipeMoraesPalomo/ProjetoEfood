@@ -23,6 +23,5 @@ export const FooterUl = styled.ul`
 export const FooterP = styled.p`
   font-size: 10px;
   line-height: 12px;
-  width: 480px;
   text-align: center;
 `

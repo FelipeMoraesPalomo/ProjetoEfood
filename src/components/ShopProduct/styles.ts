@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ShopProductDiv = styled.div`
   width: 320px;
@@ -87,6 +87,26 @@ export const ModalContent = styled.div`
       cursor: pointer;
     }
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    padding: 14px;
+    height: auto;
+
+    #img {
+      max-width: 100%;
+      max-height: auto;
+      object-fit: cover;
+      margin-right: 0;
+    }
+
+    #close {
+      width: 25px;
+      height: 25px;
+      top: -30px;
+      right: 0px;
+    }
+  }
 `
 
 export const ModalTextDiv = styled.div`
@@ -106,5 +126,28 @@ export const ModalTextDiv = styled.div`
 
   button {
     max-width: 220px;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    p {
+      margin: 8px 0;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    h3 {
+      font-size: 16px;
+      margin-top: 6px;
+    }
+
+    p {
+      line-height: normal;
+      overflow: scroll;
+      margin: 6px 0;
+    }
+
+    button {
+      max-width: 100%;
+    }
   }
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const Section = styled.section`
   margin: 80px auto;
@@ -11,4 +12,10 @@ export const List = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 80px;
   grid-row-gap: 48px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `

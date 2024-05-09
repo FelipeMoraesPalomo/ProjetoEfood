@@ -1,11 +1,15 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import fundo from '../../assets/images/fundo.png'
 
 export const HeaderContainer = styled.header`
   background-color: ${cores.laranja};
   height: 384px;
   background: url(${fundo});
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
+  }
 `
 export const HeaderDiv = styled.div`
   display: flex;

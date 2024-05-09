@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 import lixeira from '../../assets/images/lixeira.png'
 
@@ -73,6 +73,10 @@ export const CartItem = styled.li`
   p {
     margin-top: 16px;
     font-weight: 400;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 250px;
   }
 `
 export const Prices = styled.div`
