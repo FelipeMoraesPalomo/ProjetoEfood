@@ -7,6 +7,7 @@ import { RootReducer } from '../../store'
 
 import { close, remove } from '../../store/reducers/cart'
 import { formataPreco } from '../ShopProduct'
+import Checkout from '../Checkout'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -31,29 +32,35 @@ const Cart = () => {
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart}></S.Overlay>
       <S.Sidebar>
-        <ul>
-          {items.map((item) => (
-            <S.CartItem key={item.id}>
-              <img className="productImage" src={item.foto} />
-              <div>
-                <h4>{item.nome}</h4>
-                <p>{formataPreco(item.preco)}</p>
-              </div>
-              <button
-                onClick={() => removeItem(item.id)}
-                className="close"
-                type="button"
-              ></button>
-            </S.CartItem>
-          ))}
-        </ul>
-        <S.Prices>
-          <p>Valor total</p>
-          <p>{formataPreco(getTotalPrice())}</p>
-        </S.Prices>
-        <Button title="Clique aqui para continuar com a entrega" type="button">
-          Continuar com a entrega
-        </Button>
+        <S.CartStage className="is-checkout">
+          <ul>
+            {items.map((item) => (
+              <S.CartItem key={item.id}>
+                <img className="productImage" src={item.foto} />
+                <div>
+                  <h4>{item.nome}</h4>
+                  <p>{formataPreco(item.preco)}</p>
+                </div>
+                <button
+                  onClick={() => removeItem(item.id)}
+                  className="close"
+                  type="button"
+                ></button>
+              </S.CartItem>
+            ))}
+          </ul>
+          <S.Prices>
+            <p>Valor total</p>
+            <p>{formataPreco(getTotalPrice())}</p>
+          </S.Prices>
+          <Button
+            title="Clique aqui para continuar com a entrega"
+            type="button"
+          >
+            Continuar com a entrega
+          </Button>
+        </S.CartStage>
+        <Checkout />
       </S.Sidebar>
     </S.CartContainer>
   )

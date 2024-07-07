@@ -37,7 +37,9 @@ export const Sidebar = styled.aside`
   padding: 16px 8px;
   min-width: 250px;
   overflow-x: hidden;
+`
 
+export const CartStage = styled.div`
   .productImage {
     width: 80px;
     height: 80px;
@@ -54,6 +56,10 @@ export const Sidebar = styled.aside`
     bottom: 8px;
     right: 8px;
     cursor: pointer;
+  }
+
+  &.is-checkout {
+    display: none;
   }
 `
 
